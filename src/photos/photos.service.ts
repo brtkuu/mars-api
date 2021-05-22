@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Query } from '@nestjs/common';
 import axios from 'axios';
 import { PhotosApi } from './photos.api';
 
@@ -6,8 +6,8 @@ import { PhotosApi } from './photos.api';
 export class PhotosService {
   constructor(private readonly photosApi: PhotosApi) {}
 
-  async getPhotos() {
-    const data = await this.photosApi.getPhotos();
+  async getPhotos(query) {
+    const data = await this.photosApi.getPhotos(query);
     return JSON.stringify(data);
   }
 

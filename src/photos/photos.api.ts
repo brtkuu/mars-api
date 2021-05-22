@@ -9,8 +9,8 @@ export class PhotosApi {
     @InjectModel(Photos.name) private photosModel: Model<PhotosDocument>,
   ) {}
 
-  async getPhotos(): Promise<Photos[]> {
-    const data = await this.photosModel.find();
+  async getPhotos(query): Promise<Photos[]> {
+    const data = await this.photosModel.find(query);
     return data;
   }
 

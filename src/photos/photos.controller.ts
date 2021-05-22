@@ -1,3 +1,4 @@
+import { Query } from '@nestjs/common';
 import { Controller, Get, Patch } from '@nestjs/common';
 import { PhotosService } from './photos.service';
 
@@ -6,8 +7,8 @@ export class PhotosController {
   constructor(private readonly photosService: PhotosService) {}
 
   @Get()
-  async getPhotos(): Promise<string> {
-    return await this.photosService.getPhotos();
+  async getPhotos(@Query() query): Promise<string> {
+    return await this.photosService.getPhotos(query);
   }
 
   @Patch()
