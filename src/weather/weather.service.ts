@@ -8,12 +8,18 @@ import { WeatherApi } from './weather.api';
 export class WeatherService {
   constructor(private readonly weatherApi: WeatherApi) {}
 
-  async refreshWeather() {
+  async updateWeather() {
     const { data: sols } = await axios.get(
       'https://mars.nasa.gov/rss/api/?feed=weather&category=mars2020&feedtype=json',
     );
     const weather = await this.weatherApi.updateWeather(
       sols.sols[sols.sols.length - 1],
     );
+  }
+
+  async getWeather(): Promise<Weather> {
+    const weather = await this.weatherApi.get();
+    console.log(weather);
+    return weather;
   }
 }

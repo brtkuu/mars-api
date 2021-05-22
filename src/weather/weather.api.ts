@@ -18,4 +18,10 @@ export class WeatherApi {
       await weather.save();
     }
   }
+
+  async get(): Promise<Weather> {
+    const actualWeather = await this.weatherModel.find();
+    console.log(actualWeather[0]);
+    return actualWeather[0];
+  }
 }
