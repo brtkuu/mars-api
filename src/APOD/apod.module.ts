@@ -12,4 +12,4 @@ import { APOD, APODSchema } from './schemas/apod.schema';
   controllers: [APODController],
   providers: [APODService, APODApi],
 })
-export class PhotosModule {}
+export class APODModule {}

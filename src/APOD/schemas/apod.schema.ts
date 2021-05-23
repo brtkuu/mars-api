@@ -6,6 +6,9 @@ export type APODDocument = APOD & Document;
 @Schema()
 export class APOD {
   @Prop()
+  title: string;
+
+  @Prop()
   hdurl: string;
 
   @Prop()
