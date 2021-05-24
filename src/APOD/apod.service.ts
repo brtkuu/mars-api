@@ -12,6 +12,7 @@ export class APODService {
   }
 
   async updateAPOD() {
+    await this.apodApi.deleteAPODS();
     for (let i = 0; i < 7; i++) {
       const date = new Date(new Date().getTime() - i * 86400000);
       const stringDate = `${date.getFullYear()}-${date.getMonth() +
@@ -24,6 +25,7 @@ export class APODService {
         title: data.data.title,
         hdurl: data.data.hdurl,
         explination: data.data.explination,
+        date: data.data.date,
       });
     }
   }

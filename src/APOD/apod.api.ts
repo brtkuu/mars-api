@@ -11,12 +11,12 @@ export class APODApi {
     return await this.apodModel.find(query);
   }
 
-  async updateAPOD(data: {
-    title: string;
-    hdurl: string;
-    explination: string;
-  }) {
+  async updateAPOD(data: APOD) {
     const item = new this.apodModel(data);
     await item.save();
+  }
+
+  async deleteAPODS() {
+    await this.apodModel.deleteMany({});
   }
 }

@@ -10,13 +10,9 @@ export class WeatherApi {
     @InjectModel(Weather.name) private weatherModel: Model<WeatherDocument>,
   ) {}
   async updateWeather(data: Weather) {
-    try {
-      const item = await this.weatherModel.find({});
-      await this.weatherModel.updateOne({ id: item[0].id }, data);
-    } catch (e) {
-      const weather = new this.weatherModel(data);
-      await weather.save();
-    }
+    await this.weatherModel.deleteMany({});
+    const weather = new this.weatherModel(data);
+    await weather.save();
   }
 
   async get(): Promise<Weather> {

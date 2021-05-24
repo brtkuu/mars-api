@@ -13,6 +13,9 @@ export class APOD {
 
   @Prop()
   explination: string;
+
+  @Prop()
+  date: string;
 }
 
 export const APODSchema = SchemaFactory.createForClass(APOD);
