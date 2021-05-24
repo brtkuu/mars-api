@@ -19,7 +19,6 @@ export class WeatherService {
 
   async getWeather(): Promise<Weather> {
     const weather = await this.weatherApi.get();
-    console.log(weather);
     return weather;
   }
 }

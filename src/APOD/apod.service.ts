@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import dateFormat from 'dateformat';
 import { APODApi } from './apod.api';
 
 @Injectable()
@@ -17,7 +16,6 @@ export class APODService {
       const date = new Date(new Date().getTime() - i * 86400000);
       const stringDate = `${date.getFullYear()}-${date.getMonth() +
         1}-${date.getDate()}`;
-      console.log(stringDate);
 
       const data = await axios.get(
         `https://api.nasa.gov/planetary/apod?api_key=HSQg2IZMuBBelkbTvL0FJHLtdCv6BwmfUsWPYoLy&date=${stringDate}`,

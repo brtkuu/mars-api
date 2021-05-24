@@ -12,7 +12,6 @@ export class WeatherController {
 
   @Patch()
   update(): string {
-    console.log('update');
     this.weatherService.updateWeather();
     return 'Weather refreshed';
   }
