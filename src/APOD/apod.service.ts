@@ -23,9 +23,10 @@ export class APODService {
       );
       await this.apodApi.updateAPOD({
         title: data.data.title,
-        hdurl: data.data.hdurl,
+        url: data.data.url,
         explination: data.data.explination,
         date: data.data.date,
+        media: data.data.media_type,
       });
     }
   }

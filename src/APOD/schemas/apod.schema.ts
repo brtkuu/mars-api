@@ -9,13 +9,16 @@ export class APOD {
   title: string;
 
   @Prop()
-  hdurl: string;
+  url: string;
 
   @Prop()
   explination: string;
 
   @Prop()
   date: string;
+
+  @Prop()
+  media: string;
 }
 
 export const APODSchema = SchemaFactory.createForClass(APOD);
